@@ -15,11 +15,11 @@
 </template>
 
 <script>
-
-
 import { search } from '../../api/instance'
 
 import { tableHeaders } from './table-utils'
+
+import { mapActions, mapMutations } from 'vuex'
 
 export default {
 
@@ -33,8 +33,13 @@ export default {
   },
   computed: {},
   methods : {
+    ...mapMutations({
+      setCurrentPackageName: 'packages/setCurrentPackageName',
+      changeLoadingState: 'changeLoadingState',
+    }),
+
     onRowClick: function (row) {
-      console.log(row)
+
     }
   },
   watch   : {
