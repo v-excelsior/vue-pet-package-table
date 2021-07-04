@@ -1,4 +1,4 @@
-import API from '../../api'
+import API from '../api'
 
 export default {
   namespaced: true,
@@ -11,6 +11,8 @@ export default {
   mutations : {
     setCurrentPackageName(state, packageName) {
       state.currentPackageName = packageName
+
+      console.log({state,packageName})
     },
 
     setPackageInfo(state, packageInfo) {

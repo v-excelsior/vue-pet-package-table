@@ -8,11 +8,11 @@
         @click:row="onRowClick"
     >
       <template #top>
-        <v-text-field v-model="searchPackageName" label="Search" class="mx-4"/>
+        <v-text-field v-model.lazy="searchPackageName" label="Search" class="mx-4"/>
       </template>
 
       <template #item.homepage="{ value }">
-        <TableLink :url="value"/>
+        <TableLink :url="value" :iconName="'link'" />
       </template>
     </v-data-table>
   </div>
@@ -20,10 +20,10 @@
 
 <script>
 import TableLink from './TableLink'
-
-import API from '../../api'
-
 import { tableHeaders } from './table-utils'
+
+import API from "@/api";
+import { _debounce } from '@/utils/common'
 
 import { mapMutations } from 'vuex'
 
@@ -38,7 +38,6 @@ export default {
     return {
       tableHeaders,
       searchPackageName: '',
-      calories         : '',
       packages         : [],
     }
   },
@@ -46,17 +45,18 @@ export default {
   methods : {
     ...mapMutations({
       setCurrentPackageName: 'packages/setCurrentPackageName',
+      toggleModalVisibility: 'toggleModalVisibility'
     }),
 
     onRowClick: function (row) {
-      console.log(row)
+      this.setCurrentPackageName(row.name)
+      this.toggleModalVisibility()
     }
   },
   watch   : {
-    searchPackageName: async function (packageName) {
-      //add debounce
+    searchPackageName: _debounce(async function (packageName) {
       this.packages = await API.findPackages(packageName)
-    }
+    }, 300)
   }
 }
 </script>
