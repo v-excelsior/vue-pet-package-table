@@ -7,21 +7,32 @@
         class="elevation-1"
         @click:row="onRowClick"
     >
-      <template v-slot:top>
+      <template #top>
         <v-text-field v-model="searchPackageName" label="Search" class="mx-4"/>
+      </template>
+
+      <template #item.homepage="{ value }">
+        <TableLink :url="value"/>
       </template>
     </v-data-table>
   </div>
 </template>
 
 <script>
-import { search } from '../../api/instance'
+import TableLink from './TableLink'
+
+import API from '../../api'
 
 import { tableHeaders } from './table-utils'
 
-import { mapActions, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
+  name: 'PackageTable',
+
+  components: {
+    TableLink
+  },
 
   data() {
     return {
@@ -35,17 +46,16 @@ export default {
   methods : {
     ...mapMutations({
       setCurrentPackageName: 'packages/setCurrentPackageName',
-      changeLoadingState: 'changeLoadingState',
     }),
 
     onRowClick: function (row) {
-
+      console.log(row)
     }
   },
   watch   : {
     searchPackageName: async function (packageName) {
       //add debounce
-      this.packages = await search(packageName)
+      this.packages = await API.findPackages(packageName)
     }
   }
 }

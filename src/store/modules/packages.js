@@ -1,4 +1,4 @@
-import
+import API from '../../api'
 
 export default {
   namespaced: true,
@@ -20,7 +20,7 @@ export default {
 
   actions   : {
     async setPackageInfo({commit, state }){
-      const packageInfo  = async getPackage(state.currentPackageName)
+      const packageInfo  = await API.getPackageInfo(state.currentPackageName)
 
       commit('setPackageInfo', packageInfo)
     },
