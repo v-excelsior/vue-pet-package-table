@@ -1,19 +1,19 @@
 <template>
   <v-app>
     <v-main>
-      <MainPage/>
+      <SearchField/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import MainPage from './views/MainPage';
+import SearchField from '../components/SearchField';
 
 export default {
-  name: 'App',
+  name: 'MainPage',
 
   components: {
-    MainPage,
+    SearchField,
   },
 
   data: () => ({
