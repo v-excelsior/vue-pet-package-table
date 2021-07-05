@@ -1,7 +1,6 @@
 <template>
   <v-dialog
-      v-model="isModalVisible"
-      @click:outside="toggleModalVisibility"
+      v-model="show"
   >
     {{ JSON.stringify(packageInfo) }}
   </v-dialog>
@@ -19,25 +18,29 @@ export default {
   components: {},
 
   data() {
-    return { }
+    return {}
   },
+
   computed: {
     ...mapState({
       isModalVisible: state => state.isModalVisible,
-      packageInfo: state => state.packages.packageInfo
+      packageInfo   : state => state.packages.packageInfo
     }),
+
+    show: {
+      get() {
+        return this.isModalVisible
+      },
+      set(payload) {
+        this.toggleModalVisibility(payload)
+        return this.isModalVisible
+      }
+    }
   },
   methods : {
     ...mapMutations({
       toggleModalVisibility: 'toggleModalVisibility'
     }),
-
-
   },
-  // watch   : {
-  //   searchPackageName: _debounce(async function (packageName) {
-  //     this.packages = await API.findPackages(packageName)
-  //   }, 300)
-  // }
 }
 </script>
