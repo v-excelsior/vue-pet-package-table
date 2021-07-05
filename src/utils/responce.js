@@ -1,7 +1,13 @@
-
-
 export const preparePackageInfo = packageInfo => {
-  delete packageInfo._highlightResult
+  if(!packageInfo){
+    return {
+      error: "We could not find info about this package"
+    }
+  }
+
+  if (packageInfo._highlightResult) {
+    delete packageInfo._highlightResult
+  }
 
   packageInfo.owner = packageInfo.owner.link
   packageInfo.repository = packageInfo.owner.url
@@ -12,12 +18,10 @@ export const preparePackageInfo = packageInfo => {
   packageInfo.created = new Date(packageInfo.created).toLocaleDateString()
 
   for (const property in packageInfo) {
-    if(!packageInfo[property]){
+    if (!packageInfo[property]) {
       delete packageInfo[property]
     }
   }
-
-
 
   return packageInfo
 }
