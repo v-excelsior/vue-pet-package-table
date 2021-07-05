@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <v-data-table
-        :headers="tableHeaders"
-        :items="packages"
-        item-key="name"
-        class="elevation-1"
-        @click:row="onRowClick"
-    >
-      <template #top>
-        <v-text-field v-model.lazy="searchPackageName" label="Search" class="mx-4"/>
-      </template>
+  <v-data-table
+      :headers="tableHeaders"
+      :items="packages"
+      item-key="name"
+      class="elevation-1"
+      @click:row="onRowClick"
+  >
+    <template #top>
+      <v-text-field v-model.lazy="searchPackageName" label="Search" class="mx-4"/>
+    </template>
 
-      <template #item.homepage="{ value }">
-        <TableLink :url="value" :iconName="'link'" />
-      </template>
-    </v-data-table>
-  </div>
+    <template #item.homepage="{ value }">
+      <TableLink :url="value" :iconName="'link'"/>
+    </template>
+  </v-data-table>
 </template>
 
 <script>
@@ -25,7 +23,7 @@ import { tableHeaders } from './table-utils'
 import API from "@/api";
 import { _debounce } from '@/utils/common'
 
-import { mapMutations } from 'vuex'
+import { mapActions,mapMutations } from 'vuex'
 
 export default {
   name: 'PackageTable',
@@ -41,19 +39,25 @@ export default {
       packages         : [],
     }
   },
+
   computed: {},
-  methods : {
+
+  methods: {
     ...mapMutations({
-      setCurrentPackageName: 'packages/setCurrentPackageName',
       toggleModalVisibility: 'toggleModalVisibility'
     }),
 
+    ...mapActions({
+      loadPackageInfo: 'packages/loadPackageInfo',
+    }),
+
     onRowClick: function (row) {
-      this.setCurrentPackageName(row.name)
+      this.loadPackageInfo(row.name)
       this.toggleModalVisibility()
     }
   },
-  watch   : {
+
+  watch: {
     searchPackageName: _debounce(async function (packageName) {
       this.packages = await API.findPackages(packageName)
     }, 300)

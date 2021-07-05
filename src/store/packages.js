@@ -11,8 +11,6 @@ export default {
   mutations : {
     setCurrentPackageName(state, packageName) {
       state.currentPackageName = packageName
-
-      console.log({state,packageName})
     },
 
     setPackageInfo(state, packageInfo) {
@@ -21,8 +19,8 @@ export default {
   },
 
   actions   : {
-    async setPackageInfo({commit, state }){
-      const packageInfo  = await API.getPackageInfo(state.currentPackageName)
+    async loadPackageInfo({commit }, packageName){
+      const packageInfo  = await API.getPackageInfo(packageName)
 
       commit('setPackageInfo', packageInfo)
     },
