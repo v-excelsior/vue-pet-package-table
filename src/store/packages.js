@@ -5,25 +5,24 @@ export default {
 
   state: {
     currentPackageName: '',
-    packageInfo       : {}
+    packageInfo: {}
   },
 
   mutations: {
-    setCurrentPackageName(state, packageName) {
+    setCurrentPackageName (state, packageName) {
       state.currentPackageName = packageName
     },
 
-    setPackageInfo(state, packageInfo) {
+    setPackageInfo (state, packageInfo) {
       state.packageInfo = packageInfo
     }
   },
 
   actions: {
-    async loadPackageInfo({ commit }, packageName) {
+    async loadPackageInfo ({ commit }, packageName) {
       const packageInfo = await API.findPackage(packageName)
 
       commit('setPackageInfo', packageInfo)
     }
   }
 }
-

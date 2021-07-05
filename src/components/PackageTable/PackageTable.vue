@@ -67,12 +67,12 @@ export default {
     TableLink
   },
 
-  data() {
+  data () {
     return {
       tableHeaders,
       searchPackageName: '',
-      packages         : [],
-      page             : 1
+      packages: [],
+      page: 1
     }
   },
 

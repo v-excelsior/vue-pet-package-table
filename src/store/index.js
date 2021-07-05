@@ -9,11 +9,11 @@ export default new Vuex.Store({
   namespaced: true,
 
   state: {
-    isModalVisible: false,
+    isModalVisible: false
   },
 
   mutations: {
-    toggleModalVisibility(state, forceValue) {
+    toggleModalVisibility (state, forceValue) {
       if (typeof forceValue !== 'undefined') {
         state.isModalVisible = forceValue
       } else {
@@ -24,4 +24,3 @@ export default new Vuex.Store({
 
   modules: { packages }
 })
-

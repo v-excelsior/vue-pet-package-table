@@ -27,7 +27,7 @@ export default {
 
   components: {},
 
-  data() {
+  data () {
     return {}
   },
 
@@ -37,20 +37,20 @@ export default {
     }),
 
     transformToReadableText: text => transformToReadableText(text),
-    isLink                 : s => isLink(s)
+    isLink: s => isLink(s)
   },
 
   computed: {
     ...mapState({
       isModalVisible: state => state.isModalVisible,
-      packageInfo   : state => state.packages.packageInfo
+      packageInfo: state => state.packages.packageInfo
     }),
 
     show: {
-      get() {
+      get () {
         return this.isModalVisible
       },
-      set(show) {
+      set (show) {
         this.toggleModalVisibility(show)
         return this.isModalVisible
       }
