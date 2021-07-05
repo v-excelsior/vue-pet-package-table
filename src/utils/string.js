@@ -10,6 +10,6 @@ export const breakCamelCase = s => s
 
 export const replaceDotsWithSpaces = s => s.replace(/\./g, ' ')
 
-export const isLink = s => typeof s === "string" && s.startsWith('http')
+export const isLink = s => typeof s === 'string' && s.startsWith('http')
 
 export const transformToReadableText = text => capitalizeSentence(breakCamelCase(replaceDotsWithSpaces(text)))

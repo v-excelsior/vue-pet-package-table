@@ -1,7 +1,7 @@
 export const preparePackageInfo = packageInfo => {
-  if(!packageInfo){
+  if (!packageInfo) {
     return {
-      error: "We could not find info about this package"
+      error: 'We could not find info about this package',
     }
   }
 

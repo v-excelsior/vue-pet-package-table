@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 const JSD = axios.create({
   baseURL: 'https://data.jsdelivr.com/v1/package/npm/',

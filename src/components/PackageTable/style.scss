@@ -1,7 +1,7 @@
 .v-data-table {
   margin-top: 60px;
-  margin-bottom: 50px;
-  height: calc(100vh - 100px);
+  margin-bottom: 80px;
+  height: calc(100vh - 140px);
   overflow: auto;
 
   @media screen and (max-width: 600px) {
@@ -35,18 +35,33 @@
 
   .table-footer {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     bottom: 0;
     position: fixed;
-    height: 45px;
-    justify-content: space-around;
-    align-items: center;
+    height: 80px;
     background-color: lightgray;
 
-    * {
-      flex-grow: 1;
-      margin: 0 20px;
-      text-align: center;
+
+    .table-pagination{
+      display: flex;
+      width: 80%;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0 auto;
+
+      * {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+
+    .my-info{
+      * {
+        margin: 0 10px;
+      }
     }
   }
 }

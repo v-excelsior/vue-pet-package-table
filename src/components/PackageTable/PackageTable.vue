@@ -27,19 +27,25 @@
 
     <template #footer>
       <div class="table-footer">
-        <v-btn
-            @click="getPrevPage"
-            small
-            :disabled="page === 1"
-            :ripple="false"
-        >Prev</v-btn>
-        <span>{{ page }}</span>
-        <v-btn
-            @click="getNextPage"
-            small
-            :disabled="packages.length < 10"
-            :ripple="false"
-        >Next</v-btn>
+        <div class="table-pagination">
+          <v-btn
+              @click="getPrevPage"
+              small
+              :disabled="page === 1"
+              :ripple="false"
+          >Prev</v-btn>
+          <span>{{ page }}</span>
+          <v-btn
+              @click="getNextPage"
+              small
+              :disabled="packages.length < 10"
+              :ripple="false"
+          >Next</v-btn>
+        </div>
+        <div class="my-info">
+          <span>Vakuliuk Dima</span>
+          <a target="_blank" href="https://github.com/v-excelsior">Github</a>
+        </div>
       </div>
     </template>
   </v-data-table>

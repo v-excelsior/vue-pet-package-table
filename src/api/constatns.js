@@ -13,9 +13,9 @@ export const staticOptions = {
 
 export const extendedAttributes = [
   ...staticOptions.attributesToRetrieve,
-  "downloadsLast30Days",
-  "repository.url",
-  "owner.link",
-  "license",
-  "created"
+  'downloadsLast30Days',
+  'repository.url',
+  'owner.link',
+  'license',
+  'created',
 ]
