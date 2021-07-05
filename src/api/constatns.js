@@ -1,14 +1,14 @@
 export const staticOptions = {
-  page                : 1,
-  hitsPerPage         : 10,
+  page: 1,
+  hitsPerPage: 10,
   attributesToRetrieve: [
     'name',
     'description',
     'version',
     'githubRepo.user',
-    'homepage',
+    'homepage'
   ],
-  analyticsTags       : ['jsdelivr'],
+  analyticsTags: ['jsdelivr']
 }
 
 export const extendedAttributes = [
@@ -17,5 +17,5 @@ export const extendedAttributes = [
   'repository.url',
   'owner.link',
   'license',
-  'created',
+  'created'
 ]

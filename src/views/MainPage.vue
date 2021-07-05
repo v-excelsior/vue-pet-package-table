@@ -18,8 +18,6 @@ export default {
   components: {
     PackageTable,
     PackageDialog
-  },
+  }
 }
 </script>
-
-

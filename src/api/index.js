@@ -16,7 +16,7 @@ const API = {
     const options = {
       ...staticOptions,
       attributesToRetrieve: extendedAttributes,
-      hitsPerPage: 1,
+      hitsPerPage: 1
     }
 
     const result = await AS.search(packageName, options).then(r => r.hits[0])
@@ -26,7 +26,7 @@ const API = {
 
   getPackageJSDInfo: packageName => {
     return JSD.get(packageName).then(r => r.data)
-  },
+  }
 }
 
 export default API

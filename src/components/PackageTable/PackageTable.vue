@@ -55,7 +55,7 @@
 import TableLink from './TableLink'
 import { tableHeaders } from './table-utils'
 
-import API from "@/api";
+import API from '@/api'
 import { _debounce } from '@/utils/common'
 
 import { mapActions, mapMutations } from 'vuex'
@@ -72,7 +72,7 @@ export default {
       tableHeaders,
       searchPackageName: '',
       packages         : [],
-      page: 1
+      page             : 1
     }
   },
 
@@ -84,7 +84,7 @@ export default {
     }),
 
     ...mapActions({
-      loadPackageInfo: 'packages/loadPackageInfo',
+      loadPackageInfo: 'packages/loadPackageInfo'
     }),
 
     onRowClick: function (row) {

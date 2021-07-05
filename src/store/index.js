@@ -19,10 +19,9 @@ export default new Vuex.Store({
       } else {
         state.isModalVisible = !state.isModalVisible
       }
-    },
+    }
   },
 
-  actions: {},
-
-  modules: { packages },
+  modules: { packages }
 })
+

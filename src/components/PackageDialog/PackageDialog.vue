@@ -37,10 +37,7 @@ export default {
     }),
 
     transformToReadableText: text => transformToReadableText(text),
-    isLink                 : s => {
-      console.log(s)
-      return isLink(s)
-    }
+    isLink                 : s => isLink(s)
   },
 
   computed: {
@@ -57,8 +54,8 @@ export default {
         this.toggleModalVisibility(show)
         return this.isModalVisible
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

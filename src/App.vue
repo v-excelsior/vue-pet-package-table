@@ -7,19 +7,15 @@
 </template>
 
 <script>
-import MainPage from './views/MainPage';
+import MainPage from './views/MainPage'
 
 export default {
   name: 'App',
 
   components: {
-    MainPage,
-  },
-
-  data: () => ({
-    //
-  }),
-};
+    MainPage
+  }
+}
 </script>
 
 <style lang="scss" src="./style.scss"/>
