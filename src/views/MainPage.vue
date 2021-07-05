@@ -19,9 +19,7 @@ export default {
     PackageTable,
     PackageDialog
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
+
+
