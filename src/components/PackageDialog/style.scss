@@ -1,11 +1,9 @@
 .package-dialog{
-  width: max-content;
   max-width: 600px;
   height:max-content;
   max-height: 800px;
   color: white;
   background-color: gray;
-  border-radius: 10px;
   padding: 20px;
 
   & &__link {

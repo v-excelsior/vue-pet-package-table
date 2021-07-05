@@ -1,8 +1,52 @@
 .v-data-table {
-  margin-bottom: 120px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  height: calc(100vh - 100px);
+  overflow: auto;
 
-  .pagination {
+  @media screen and (max-width: 600px) {
+    thead {
+      display: none;
+    }
+
+    .v-data-table__mobile-row__cell {
+      word-break: break-all;
+      max-width: 200px;
+      max-height: 150px;
+    }
+  }
+
+  .table-header {
+    display: flex;
+    width: 100%;
     position: fixed;
+    top: 0;
+    background-color: lightgray;
+    padding: 10px 30px;
+
+    .v-input__control {
+      min-height: 36px !important;
+
+      .v-input__slot {
+        min-height: 36px;
+      }
+    }
+  }
+
+  .table-footer {
+    display: flex;
+    width: 100%;
     bottom: 0;
+    position: fixed;
+    height: 45px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightgray;
+
+    * {
+      flex-grow: 1;
+      margin: 0 20px;
+      text-align: center;
+    }
   }
 }

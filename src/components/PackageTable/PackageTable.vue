@@ -9,7 +9,16 @@
       disable-sort
   >
     <template #top>
-      <v-text-field v-model.lazy="searchPackageName" label="Search" class="mx-4"/>
+      <div class="table-header">
+        <v-text-field
+            hide-details
+            v-model.lazy="searchPackageName"
+            label="Search"
+            solo
+            full-width
+            height="12px"
+        />
+      </div>
     </template>
 
     <template #item.homepage="{ value }">
@@ -17,10 +26,20 @@
     </template>
 
     <template #footer>
-      <div class="pagination">
-        <v-btn @click="getPrevPage" :disabled="page === 1">Prev</v-btn>
+      <div class="table-footer">
+        <v-btn
+            @click="getPrevPage"
+            small
+            :disabled="page === 1"
+            :ripple="false"
+        >Prev</v-btn>
         <span>{{ page }}</span>
-        <v-btn @click="getNextPage" :disabled="packages.length < 10">Next</v-btn>
+        <v-btn
+            @click="getNextPage"
+            small
+            :disabled="packages.length < 10"
+            :ripple="false"
+        >Next</v-btn>
       </div>
     </template>
   </v-data-table>
