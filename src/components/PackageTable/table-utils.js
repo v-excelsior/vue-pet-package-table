@@ -1,9 +1,7 @@
 import { staticOptions as apiOptions } from '../../api/constatns'
-import { capitalizeSentence,breakCamelCase } from "@/utils/string";
-
-const transformToHeader = text => capitalizeSentence(breakCamelCase(text))
+import { transformToReadableText } from "@/utils/string";
 
 export const tableHeaders = apiOptions.attributesToRetrieve.map(attr => ({
-  text : transformToHeader(attr),
+  text : transformToReadableText(attr),
   value: attr
 }))

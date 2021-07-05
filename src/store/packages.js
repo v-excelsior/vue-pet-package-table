@@ -20,7 +20,7 @@ export default {
 
   actions   : {
     async loadPackageInfo({commit }, packageName){
-      const packageInfo  = await API.getPackageInfo(packageName)
+      const packageInfo = await API.findPackage(packageName)
 
       commit('setPackageInfo', packageInfo)
     },

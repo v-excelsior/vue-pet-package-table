@@ -14,12 +14,9 @@ export default new Vuex.Store({
 
   mutations: {
     toggleModalVisibility(state, forceValue) {
-      console.log(state.isModalVisible)
-
       if (typeof forceValue !== 'undefined') {
         state.isModalVisible = forceValue
       } else {
-        console.log('toggle')
         state.isModalVisible = !state.isModalVisible
       }
     },

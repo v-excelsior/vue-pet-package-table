@@ -11,7 +11,7 @@
     </template>
 
     <template #item.homepage="{ value }">
-      <TableLink :url="value" :iconName="'link'"/>
+      <TableLink :url="value"/>
     </template>
   </v-data-table>
 </template>
