@@ -11,38 +11,36 @@
     <template #top>
       <div class="table-header">
         <v-text-field
-            hide-details
-            v-model.lazy="searchPackageName"
-            label="Search"
-            solo
-            full-width
-            height="12px"
+          hide-details
+          v-model.lazy="searchPackageName"
+          label="Search"
+          solo
+          full-width
+          height="12px"
         />
+
+        <div class="table-controls">
+          <div class="table-pagination">
+            <v-btn
+              @click="getPrevPage"
+              :disabled="page === 1"
+              :ripple="false"
+            >Prev
+            </v-btn>
+            <span>{{ page }}</span>
+            <v-btn
+              @click="getNextPage"
+              :disabled="packages.length < 10"
+              :ripple="false"
+            >Next
+            </v-btn>
+          </div>
+        </div>
       </div>
     </template>
 
     <template #item.homepage="{ value }">
       <TableLink :url="value"/>
-    </template>
-
-    <template #footer>
-      <div class="table-footer">
-        <div class="table-pagination">
-          <v-btn
-              @click="getPrevPage"
-              small
-              :disabled="page === 1"
-              :ripple="false"
-          >Prev</v-btn>
-          <span>{{ page }}</span>
-          <v-btn
-              @click="getNextPage"
-              small
-              :disabled="packages.length < 10"
-              :ripple="false"
-          >Next</v-btn>
-        </div>
-      </div>
     </template>
   </v-data-table>
 </template>
