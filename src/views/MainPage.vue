@@ -4,20 +4,22 @@
       <PackageTable/>
 
       <PackageDialog/>
+
+      <Footer/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import PackageTable from '@/components/PackageTable/PackageTable'
-import PackageDialog from '@/components/PackageDialog/PackageDialog'
+import { PackageTable, PackageDialog, Footer } from '@/components'
 
 export default {
   name: 'MainPage',
 
   components: {
     PackageTable,
-    PackageDialog
+    PackageDialog,
+    Footer
   }
 }
 </script>

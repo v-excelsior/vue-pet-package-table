@@ -6,10 +6,10 @@ import { staticOptions, extendedAttributes } from './constatns'
 import { preparePackageInfo } from '@/utils/responce'
 
 const API = {
-  findPackages: async (queryString = '', page = 0) => {
+  findPackages: (queryString = '', page = 0) => {
     const options = { ...staticOptions, page }
 
-    return await AS.search(queryString, options).then(r => r.hits)
+    return AS.search(queryString, options).then(r => r.hits)
   },
 
   findPackage: async packageName => {

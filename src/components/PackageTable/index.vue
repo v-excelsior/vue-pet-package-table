@@ -42,10 +42,6 @@
               :ripple="false"
           >Next</v-btn>
         </div>
-        <div class="my-info">
-          <span>Vakuliuk Dima</span>
-          <a target="_blank" href="https://github.com/v-excelsior">Github</a>
-        </div>
       </div>
     </template>
   </v-data-table>
